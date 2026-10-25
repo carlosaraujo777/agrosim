@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSim | Simulador de Margem</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Biblioteca de Gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌱 AgroSim</h1>
+            <p>Simulador de Margem de Lucro por Hectare</p>
+        </header>
+
+        <main class="grid-layout">
+            <!-- Painel de Inputs -->
+            <section class="painel-inputs">
+                <h2>Dados da Safra</h2>
+                
+                <div class="input-group">
+                    <label>Cultura:</label>
+                    <select id="cultura">
+                        <option value="soja">Soja</option>
+                        <option value="milho">Milho</option>
+                        <option value="cafe">Café</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Custo de Produção (R$ / ha):</label>
+                    <input type="number" id="custo" value="5000" min="0">
+                </div>
+
+                <div class="input-group">
+                    <label>Produtividade (sacas / ha):</label>
+                    <input type="number" id="produtividade" value="60" min="0">
+                </div>
+
+                <div class="input-group">
+                    <label>Preço da Saca (R$):</label>
+                    <input type="number" id="preco" value="130" min="0">
+                </div>
+
+                <button onclick="calcularMargem()">Calcular Lucro</button>
+            </section>
+
+            <!-- Painel de Resultados -->
+            <section class="painel-resultados">
+                <h2>Resultado por Hectare</h2>
+                <div class="cards-resultado">
+                    <div class="card">
+                        <span>Receita Bruta</span>
+                        <h3 id="receita">R$ 0,00</h3>
+                    </div>
+                    <div class="card">
+                        <span>Lucro / Prejuízo</span>
+                        <h3 id="lucro" style="color: white;">R$ 0,00</h3>
+                    </div>
+                </div>
+                <div class="grafico-box">
+                    <canvas id="meuGrafico"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
